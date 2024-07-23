@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "../../../setup.dart";
+import "../../feature/annaunce/presentation/pages/detail_annaunce_page.dart";
 import "../../feature/annaunce/presentation/pages/post_announce_page.dart";
 import "../../feature/auth/presentation/pages/all_done_page.dart";
 import "../../feature/auth/presentation/pages/forget_password.dart";
@@ -10,7 +11,6 @@ import "../../feature/auth/presentation/pages/registration_page.dart";
 import "../../feature/auth/presentation/pages/second_forgot_password_page.dart";
 import "../../feature/auth/presentation/pages/welcome_page.dart";
 import "../../feature/home/presentation/pages/katalog_page.dart";
-import "../../feature/home/presentation/pages/profile_page.dart";
 import "../../feature/home/presentation/pages/search_page.dart";
 import "../../feature/main/presentation/pages/main_page.dart";
 import "../../feature/splash/presentation/pages/splash_page.dart";
@@ -100,10 +100,10 @@ final class AppRouter {
                 const SearchPage(),
           ),
           GoRoute(
-            path: AppRouteName.detailPage2,
-            name: AppRouteName.detailPage2,
+            path: AppRouteName.detailPage,
+            name: AppRouteName.detailPage,
             builder: (BuildContext context, GoRouterState state) =>
-                const ProfilePage(),
+                const DetailAnnouncePage(),
           ),
         ],
       ),

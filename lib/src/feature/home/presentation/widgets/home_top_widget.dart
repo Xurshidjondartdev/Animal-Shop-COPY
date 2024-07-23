@@ -15,10 +15,9 @@ class HomeTopWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         AppImages.homeMainLogoImage,
-        SizedBox(
-          height: 16.h,
-        ),
+        SizedBox(height: 16.h),
         TextField(
+          keyboardType: TextInputType.none,
           onTap: onTap,
           decoration: InputDecoration(
             prefixIcon: Padding(
@@ -27,15 +26,10 @@ class HomeTopWidget extends StatelessWidget {
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(
-                color: AppColors.white,
-                width: 1.w,
-              ),
+              borderSide: BorderSide(color: AppColors.white, width: 1.w),
             ),
             hintText: Words.AnimalType.tr(context),
-            hintStyle: const TextStyle(
-              color: AppColors.white,
-            ),
+            hintStyle: const TextStyle(color: AppColors.white),
           ),
         ),
       ],

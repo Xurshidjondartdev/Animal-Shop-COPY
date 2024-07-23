@@ -21,7 +21,6 @@ class MyRowWidget extends StatelessWidget {
             fontSize: 18.h,
             fontFamily: "Poppins",
             fontWeight: FontWeight.w600,
-            height: 0,
           ),
         ),
         const Spacer(),

@@ -29,9 +29,7 @@ class LoginPage extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 20.h,
-                  ),
+                  SizedBox(height: 20.h),
                   Row(
                     children: <Widget>[
                       Text(
@@ -43,9 +41,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.brown,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
-                      ),
+                      const SizedBox(width: 10),
                       Image.asset(
                         "assets/images/sign_in_sticker.png",
                         height: 24,
@@ -53,9 +49,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
+                  SizedBox(height: 10.h),
                   Row(
                     children: <Widget>[
                       Text(
@@ -128,9 +122,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
+                  SizedBox(height: 10.h),
                   Row(
                     children: <Widget>[
                       IconButton(

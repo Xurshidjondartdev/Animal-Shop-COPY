@@ -4,6 +4,7 @@ import "package:provider/provider.dart";
 
 import "../../feature/annaunce/controller/to_announce_ctr.dart";
 import "../../feature/auth/controller/auth_controller.dart";
+import "../../feature/home/controller/home_controller.dart";
 import "../../feature/main/controller/main_controller.dart";
 import "../../feature/settings/inherited/inherited_local_notifier.dart";
 import "../../feature/settings/inherited/inherited_theme_notifier.dart";
@@ -37,6 +38,7 @@ class AppMaterialContext extends StatelessWidget {
               return MultiProvider(
                 providers: [
                   ChangeNotifierProvider(create: (_) => AuthController()),
+                  ChangeNotifierProvider(create: (_) => HomeController()),
                   ChangeNotifierProvider(create: (_) => LocalController()),
                   ChangeNotifierProvider(create: (_) => MainController()),
                   ChangeNotifierProvider(create: (_) => ToAnnounceController()),

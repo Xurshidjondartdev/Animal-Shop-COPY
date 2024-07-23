@@ -67,8 +67,10 @@ final class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<String?> loginUser(
-      {required String email, required String password}) async {
+  Future<String?> loginUser({
+    required String email,
+    required String password,
+  }) async {
     final result = await Api.POST(
       api: Api.apiLogin,
       body: {
