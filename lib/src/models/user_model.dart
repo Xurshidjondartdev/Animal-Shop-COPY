@@ -34,6 +34,7 @@ class UserModel {
         roles: json["roles"] == null
             ? []
             : List<Authority>.from(
+                // ignore: inference_failure_on_untyped_parameter, avoid_dynamic_calls
                 json["roles"]!.map((x) => Authority.fromJson(x)),
               ),
         isDeleted: json["isDeleted"],
@@ -43,6 +44,7 @@ class UserModel {
         authorities: json["authorities"] == null
             ? []
             : List<Authority>.from(
+                // ignore: inference_failure_on_untyped_parameter, avoid_dynamic_calls
                 json["authorities"]!.map((x) => Authority.fromJson(x)),
               ),
         enabled: json["enabled"],
@@ -75,6 +77,7 @@ class UserModel {
         "phone": phone,
         "region": region,
         "roles": roles == null
+            // ignore: inference_failure_on_collection_literal
             ? []
             : List<dynamic>.from(roles!.map((x) => x.toJson())),
         "isDeleted": isDeleted,
@@ -82,6 +85,7 @@ class UserModel {
         "imagePath": imagePath,
         "username": username,
         "authorities": authorities == null
+            // ignore: inference_failure_on_collection_literal
             ? []
             : List<dynamic>.from(authorities!.map((x) => x.toJson())),
         "enabled": enabled,
