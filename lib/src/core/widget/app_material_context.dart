@@ -6,6 +6,7 @@ import "../../feature/annaunce/controller/to_announce_ctr.dart";
 import "../../feature/auth/controller/auth_controller.dart";
 import "../../feature/home/controller/home_controller.dart";
 import "../../feature/main/controller/main_controller.dart";
+import "../../feature/profile/controller/profile_controller.dart";
 import "../../feature/settings/inherited/inherited_local_notifier.dart";
 import "../../feature/settings/inherited/inherited_theme_notifier.dart";
 import "../../feature/settings/inherited/local_controller.dart";
@@ -42,6 +43,7 @@ class AppMaterialContext extends StatelessWidget {
                   ChangeNotifierProvider(create: (_) => LocalController()),
                   ChangeNotifierProvider(create: (_) => MainController()),
                   ChangeNotifierProvider(create: (_) => ToAnnounceController()),
+                  ChangeNotifierProvider(create: (_) => ProfileController()),
                 ],
                 child: MaterialApp.router(
                   onGenerateTitle: (BuildContext context) => "PDP Project",

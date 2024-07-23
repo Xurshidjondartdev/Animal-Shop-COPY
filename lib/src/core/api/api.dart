@@ -23,7 +23,7 @@ class Api {
   };
 
   //methods
-  static Future<String?> GET(String api, Map<String, String> params) async {
+  static Future<String?> GET({required String api, Map<String, String>? params}) async {
     final Uri url = Uri.http(BASEURL, api, params);
     final http.Response response = await http.get(url, headers: headers);
     if (response.statusCode == 200 || response.statusCode == 201) {

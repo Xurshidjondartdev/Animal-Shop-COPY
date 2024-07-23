@@ -23,6 +23,8 @@ sealed class AppColors {
   static const Color l0xFF64748B = Color(0xFF64748B);
   static const Color l0xFF3A3A3A = Color(0xFF3A3A3A);
 
+  static const Color c868889 = Color(0xff868889);
+
 
 
   // gradients

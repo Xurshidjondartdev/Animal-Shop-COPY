@@ -15,4 +15,6 @@ abstract class AppRepository {
     required String email,
     required String password,
   });
+
+  Future<String?> getUserInfo();
 }

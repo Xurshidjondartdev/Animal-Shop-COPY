@@ -8,7 +8,9 @@ import "app_repostory.dart";
 @immutable
 final class AppRepositoryImpl implements AppRepository {
   factory AppRepositoryImpl() => _impl;
+
   const AppRepositoryImpl._internal();
+
   static const AppRepositoryImpl _impl = AppRepositoryImpl._internal();
 
   @override
@@ -77,6 +79,22 @@ final class AppRepositoryImpl implements AppRepository {
         "email": email,
         "password": password,
       },
+    );
+    log("login user");
+    if (result != null) {
+      log(" login qildi");
+      await UserStorage.store(key: StorageKey.token, value: result);
+      token = result;
+      return result;
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  Future<String?> getUserInfo() async {
+    final result = await Api.GET(
+      api: Api.apiLogin,
     );
     log("login user");
     if (result != null) {
