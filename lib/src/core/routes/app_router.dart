@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
+import "../../../setup.dart";
 import "../../feature/annaunce/presentation/pages/post_announce_page.dart";
 import "../../feature/auth/presentation/pages/all_done_page.dart";
 import "../../feature/auth/presentation/pages/forget_password.dart";
@@ -17,7 +18,8 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.splashPage,
+    initialLocation:
+        token != null ? AppRouteName.mainPage : AppRouteName.splashPage,
     // debugLogDiagnostics: true,
     routes: <RouteBase>[
       GoRoute(

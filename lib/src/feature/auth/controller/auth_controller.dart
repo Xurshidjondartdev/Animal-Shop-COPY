@@ -6,12 +6,12 @@ import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 import "package:http/http.dart" as http;
 import "package:shared_preferences/shared_preferences.dart";
-
 import "../../../../setup.dart";
 import "../../../core/api/api.dart";
 import "../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../core/localization/words.dart";
 import "../../../core/routes/app_route_name.dart";
+import "../../../core/storage/app_storage.dart";
 import "../../../core/utils/utils.dart";
 
 class AuthController with ChangeNotifier {
@@ -128,8 +128,11 @@ class AuthController with ChangeNotifier {
       email: email,
       password: password,
     );
-    log("lgin bosildi");
+    log("login bosildi");
     if (result != null) {
+      await UserStorage.store(key: StorageKey.token, value: result);
+      token = result;
+      log(result);
       if (context.mounted) {
         context.goNamed(AppRouteName.mainPage);
         Utils.fireSnackBar(
