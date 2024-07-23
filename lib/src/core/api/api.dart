@@ -1,6 +1,5 @@
 import "dart:convert";
 import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
 import "package:http/http.dart";
@@ -35,7 +34,7 @@ class Api {
 
   static Future<String?> POST({
     required String api,
-    Map<String, dynamic>? body,
+    required Map<String, dynamic>? body,
   }) async {
     final Uri url = Uri.http(
       BASEURL,
@@ -44,6 +43,7 @@ class Api {
     log("URL  $url");
     final http.Response response = await http.post(
       url,
+      headers: headers, // Bu yerga header qo'shildi
       body: jsonEncode(body),
     );
     log("response: ${response.body}");

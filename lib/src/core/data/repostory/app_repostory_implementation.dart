@@ -1,7 +1,5 @@
 import "dart:developer";
-
 import "package:flutter/cupertino.dart";
-
 import "../../../../setup.dart";
 import "../../api/api.dart";
 import "../../storage/app_storage.dart";
@@ -54,14 +52,9 @@ final class AppRepositoryImpl implements AppRepository {
   }) async {
     final result = await Api.POST(
       api: Api.apiCheckPassword,
-      // param: {
-      //     "code": pincode,
-      //   },
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Authorization": "$token",
-      //   },
-      // );
+      body: {
+        "code": pincode,
+      },
     );
     log("token2 $token");
 
