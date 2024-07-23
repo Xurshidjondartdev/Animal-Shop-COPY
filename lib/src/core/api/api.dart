@@ -5,6 +5,8 @@ import "package:http/http.dart" as http;
 import "package:http/http.dart";
 import "package:http_parser/http_parser.dart";
 
+import "../../../setup.dart";
+
 class Api {
   // baseUrl
   static const String BASEURL = "10.10.3.151:8080";
@@ -17,7 +19,7 @@ class Api {
   // headers
   static Map<String, String> headers = <String, String>{
     "Content-Type": "application/json",
-    // "Authorization": "$token",
+    "Authorization": "$token",
     // "Accept": "application/json",
     // "Cookie":"JSESSIONID=F9BCE137AC610BEB0A3EC80AD44F5EA6",
   };

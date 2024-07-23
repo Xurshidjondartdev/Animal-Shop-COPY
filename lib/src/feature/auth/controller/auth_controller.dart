@@ -11,8 +11,8 @@ import "../../../core/api/api.dart";
 import "../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../core/localization/words.dart";
 import "../../../core/routes/app_route_name.dart";
-import "../../../core/storage/app_storage.dart";
 import "../../../core/utils/utils.dart";
+import "../model/token_model.dart";
 
 class AuthController with ChangeNotifier {
   bool isObscure = false;
@@ -128,11 +128,11 @@ class AuthController with ChangeNotifier {
       email: email,
       password: password,
     );
-    log("login bosildi");
     if (result != null) {
-      await UserStorage.store(key: StorageKey.token, value: result);
-      token = result;
-      log(result);
+      final TokenModel tokenModel = tokenModelFromJson(result);
+
+      log("login      ${tokenModel.token}  ${tokenModel.refreshToken}");
+
       if (context.mounted) {
         context.goNamed(AppRouteName.mainPage);
         Utils.fireSnackBar(

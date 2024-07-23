@@ -9,6 +9,7 @@ Future<void> setup() async {
 }
 
 String? token;
+String? refreshToken;
 
 Future<void> getStorageValues() async {
   token = await UserStorage.load(key: StorageKey.token);

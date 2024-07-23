@@ -4,11 +4,14 @@ enum StorageKey {
   user,
   token,
   theme,
+  refreshToken,
 }
 
 sealed class UserStorage {
-
-  static Future<void> store({required StorageKey key, required String value}) async {
+  static Future<void> store({
+    required StorageKey key,
+    required String value,
+  }) async {
     final SharedPreferences storage = await SharedPreferences.getInstance();
     await storage.setString(key.name, value);
   }
@@ -16,12 +19,12 @@ sealed class UserStorage {
   static Future<String?> load({required StorageKey key}) async {
     final SharedPreferences storage = await SharedPreferences.getInstance();
     final String? result = storage.getString(key.name);
-    if(result == null){
+    if (result == null) {
       return null;
-    }else{
+    } else {
       return result;
     }
-}
+  }
 
   static Future<void> delete({required StorageKey key}) async {
     final SharedPreferences storage = await SharedPreferences.getInstance();
