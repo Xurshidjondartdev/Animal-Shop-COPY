@@ -32,10 +32,8 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 20.h,
                   ),
-                  // const Spacer(),
                   Row(
                     children: <Widget>[
-                      // const SizedBox(width: 30,),
                       Text(
                         "${Words.GoodMorning.tr(context)},",
                         style: const TextStyle(
@@ -60,7 +58,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   Row(
                     children: <Widget>[
-                      // const SizedBox(width: 30,),
                       Text(
                         Words.WelcomeBack.tr(context),
                         style: const TextStyle(
@@ -73,7 +70,6 @@ class LoginPage extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
-                  // SizedBox(height: 30.h,),
                   Center(
                     child: SizedBox(
                       height: 50,
@@ -98,9 +94,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
+                  const SizedBox(height: 50),
                   Center(
                     child: SizedBox(
                       height: 50.h,
@@ -179,19 +173,18 @@ class LoginPage extends StatelessWidget {
                   const Spacer(),
                   MainButton(
                     onPressed: () async {
-                      
-                      // await ref.postAuth();
-                      context.goNamed(AppRouteName.allDonePage);
+                      await ref.loginUser(
+                        context: context,
+                        email: ref.emailController.text,
+                        password: ref.passwordController.text,
+                      );
                     },
                     text: Words.Login.tr(context),
                   ),
-                  SizedBox(
-                    height: 25.h,
-                  ),
+                  SizedBox(height: 25.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      // const SizedBox(width: 33,),
                       Text(
                         Words.IfYouDoNotHaveAnAccount.tr(context),
                         style: TextStyle(
@@ -201,9 +194,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
+                      SizedBox(width: 5.w),
                       CupertinoButton(
                         onPressed: () {
                           ref.emailController.clear();
@@ -222,9 +213,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                 ],
               ),
             ),

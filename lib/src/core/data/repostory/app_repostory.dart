@@ -1,5 +1,4 @@
 abstract class AppRepository {
-  
   Future<String?> authUser({
     required String firsName,
     required String lastName,
@@ -10,5 +9,10 @@ abstract class AppRepository {
 
   Future<String?> checkPincode({
     required String pincode,
+  });
+
+  Future<String?> loginUser({
+    required String email,
+    required String password,
   });
 }

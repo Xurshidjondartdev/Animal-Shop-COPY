@@ -119,6 +119,34 @@ class AuthController with ChangeNotifier {
     }
   }
 
+  Future<void> loginUser({
+    required BuildContext context,
+    required String email,
+    required String password,
+  }) async {
+    final result = await AppRepositoryImpl().loginUser(
+      email: email,
+      password: password,
+    );
+    log("lgin bosildi");
+    if (result != null) {
+      if (context.mounted) {
+        context.goNamed(AppRouteName.mainPage);
+        Utils.fireSnackBar(
+          "login qildi",
+          context,
+        );
+      }
+    } else {
+      if (context.mounted) {
+        Utils.fireSnackBar(
+          "xatolik loginda",
+          context,
+        );
+      }
+    }
+  }
+
   void changeLanguage(String newLanguage) {
     selectedLanguage = newLanguage;
     notifyListeners();

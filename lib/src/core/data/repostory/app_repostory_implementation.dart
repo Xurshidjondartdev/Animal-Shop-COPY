@@ -65,4 +65,25 @@ final class AppRepositoryImpl implements AppRepository {
       return null;
     }
   }
+
+  @override
+  Future<String?> loginUser(
+      {required String email, required String password}) async {
+    final result = await Api.POST(
+      api: Api.apiLogin,
+      body: {
+        "email": email,
+        "password": password,
+      },
+    );
+    log("login user");
+    if (result != null) {
+      log(" login qildi");
+      await UserStorage.store(key: StorageKey.token, value: result);
+      token = result;
+      return result;
+    } else {
+      return null;
+    }
+  }
 }
