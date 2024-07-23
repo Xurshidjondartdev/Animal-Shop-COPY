@@ -7,13 +7,13 @@ class ProfileController extends ChangeNotifier{
   ProfileController(){
     getUserInfo();
   }
-  Future<UserModel?> getUserInfo()async{
+  UserModel? userModel;
+  Future<void> getUserInfo()async{
     final result = await AppRepositoryImpl().getUserInfo();
     if(result != null){
-      final UserModel userModel = userModelFromJson(result);
-      return userModel;
+      userModel = userModelFromJson(result);
+      notifyListeners();
     }
-    return null;
   }
 
 

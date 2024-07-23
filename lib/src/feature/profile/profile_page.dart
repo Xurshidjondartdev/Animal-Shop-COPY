@@ -5,7 +5,6 @@ import "../../core/localization/words.dart";
 import "../../core/style/colors.dart";
 import "../../core/style/text_style.dart";
 import "../../core/widget/button_widget.dart";
-import "../../models/user_model.dart";
 import "../auth/presentation/widgets/text_widget.dart";
 import "controller/profile_controller.dart";
 
@@ -41,7 +40,7 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: 10.h,),
               Text(
-                UserModel().username ?? "Null keldi!",
+                ref.userModel?.username ?? "null",
                 style: const AppTextStyle().forPas?.copyWith(
                   fontSize: 15.sp,
                   height: 2,
