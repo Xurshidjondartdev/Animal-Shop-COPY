@@ -1,0 +1,109 @@
+{
+  "Hello": "Привет",
+  "GoodAnimals": "Хорошие животные",
+  "GoodMoments": "Хорошие моменты",
+  "EnjoyTheMomentWithYourPet": "Наслаждайтесь моментом со своим питомцем",
+  "GetStarted": "Начать",
+
+  "SendCode" : "Отправь код на свою эл-почту",
+  "PersonalD": "Данные пользователя",
+
+  "GoodMorning": "Доброе утро",
+  "WelcomeBack": "Добро пожаловать",
+  "Password": "Пароль",
+  "KeepMeLoggedIn" : "Не выходить из системы",
+  "ForgotPassword" : "Забыли пароль?",
+  "Login" : "Авторизоваться",
+  "LoginWithFacebook": "Войти с Facebook",
+  "LoginWithGoogle" : "Войти с Google",
+  "Or" : "или",
+  "IfYouDoNotHaveAnAccount" : "Если у вас нет учетной записи:",
+  "CreateAccount" : "Зарегистрироваться",
+  "Email": "Электронная почта",
+
+  "AllDone" : "Все сделано",
+  "ThanksForGivingUs" : "Спасибо, что уделили нам свое драгоценное время. Теперь вы готовы к приятному моменту",
+  "LetsGo": "Поехали",
+
+
+  "DoNotWorry" : "Не волнуйся! Введите зарегистрированный адрес электронной почты ниже, чтобы получить инструкции по паролю",
+  "RememberPassword": "Запомнить пароль",
+  "ResetPassword": "Сброс пароля",
+  "DoNotHaveAnAccount": "У вас нет учетной записи",
+  "SignIn": "Войти",
+
+
+  "EmailSent": "Письмо отправлено",
+  "WeHaveSentAPasswordResetLinkTo": "Мы отправили ссылку для сброса пароля на",
+  "DidNotReceive": "Не получил",
+  "Resend": "Отправить",
+  "BackToLogin": "Вернуться на страницу авторизации",
+
+
+  "Hi": "Привет",
+  "WelcomeToRegistration" : "Добро пожаловать на регистрацию",
+  "SignUpDetails" : "Подробности регистрации",
+  "FirstName": "Имя",
+  "LastName": "Фамилия",
+  "ThisWillBeYourUserName": "Это будет ваше имя пользователя",
+  "ConfirmPassword": "Подтвердите пароль",
+  "IDoNotWishToReceive" : "Я не хочу получать новости, специальные предложения и многое другое от имени.",
+  "JoinNow": "Присоединяйся сейчас",
+
+
+  "CreateYourPinCode" : "Создайте свой PIN-код",
+  "CreateA5DigitPIN" : "Создайте 5-значный PIN-код, который будет использоваться каждый раз при входе в систему.",
+  "Confirm": "Подтверждать",
+
+  "PopularAnimals": "Популярные животные",
+  "ViewAll": "Посмотреть все",
+  "Buy" : "купить",
+
+
+  "ToAnnounce": "Анонсировать",
+  "Animals": "Животные",
+  "Dogs" : "Собаки",
+  "Cats" : "Кошки",
+  "Ducks" : "Утки",
+  "UploadYourFileHere" : "Загрузите свой файл сюда",
+  "Browse" : "Просматривать",
+  "Name" : "Имя",
+  "Title" : "Заголовок",
+  "TypeSomething" : "Введите что-либо",
+  "Price" : "Цена",
+  "PhoneNumber" : "Номер телефона",
+  "Location" : "Расположение",
+  "Country" : "Страна",
+  "Region" : "Область",
+  "Description" : "Описание",
+  "TypeHere" : "Введите здесь",
+  "Upload" : "Загрузить",
+
+
+  "Complain" : "Жаловаться",
+  "ReportUser" : "Пожаловаться на пользователя",
+  "CopyLink": "Копировать ссылку",
+  "PlacedOn" : "Размещены на",
+  "Status" : "статус",
+  "Available" : "Доступный",
+  "Unavailable" : "Недоступен",
+  "Call" : "Вызов",
+
+
+  "Delete": "Удалить",
+  "Cancel" : "Отмена",
+  "AreYouSure" : "Вы уверены, что хотите удалить этот элемент? вы не сможете его восстановить",
+  "Editing" : "Редактирование",
+  "DescriptionProduct":"Описание товара",
+
+
+  "ActiveProducts" : "Активные продукты",
+
+
+  "WelcomeTo":"Добро пожаловать в",
+  "NaturalTrading":"Естественная торговля",
+  "AnimalType":"Тип животного",
+  "BelgilanganTartibdaQaytadanToldiring":"Пополняйте в указанном порядке",
+  "PinCodeXatoQaytadanUriningKoring":"Ошибка пин-кода. Повторите попытку",
+  "createdSuccessfully":"создано успешно"
+}

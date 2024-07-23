@@ -1,0 +1,109 @@
+{
+  "Hello": "Salom",
+  "GoodAnimals": "Yaxshi xayvonlar",
+  "GoodMoments": "Yaxshi momentlar",
+  "EnjoyTheMomentWithYourPet": "Uy hayvoningiz bilan lahzadan zavqlaning",
+  "GetStarted": "Boshlash",
+
+  "SendCode" : "E-mailga codni jo'natish",
+  "PersonalD": "Sizning informatsiyangiz",
+
+  "GoodMorning": "Xayrli tong",
+  "WelcomeBack": "Xush kelibsiz",
+  "Password": "Parol",
+  "KeepMeLoggedIn" : "Sistemadan chiqmaslik",
+  "ForgotPassword" : "Parol esimdan chiqtimi?",
+  "Login" : "Tizimga kirish",
+  "LoginWithFacebook": "Facebook bilan tizimga kiring",
+  "LoginWithGoogle" : "Google bilan tizimga kiring",
+  "Or" : "Yoki",
+  "IfYouDoNotHaveAnAccount" : "Agar hisobingiz bo'lmasa: ",
+  "CreateAccount" : "Roʻyxatdan oʻtish",
+  "Email": "Elektron po'chta",
+
+  "AllDone" : "Bajarildi",
+  "ThanksForGivingUs" : "Bizga qimmatli vaqtingizni ajratganingiz uchun tashakkur. Endi siz yoqimli daqiqaga tayyorsiz",
+  "LetsGo": "Qani kettik",
+
+
+  "DoNotWorry" : "Havotir olma! Parol ko'rsatmalarini olish uchun quyida ro'yxatdan o'tgan elektron pochta manzilingizni kiriting",
+  "RememberPassword": "Parolni eslab qoling",
+  "ResetPassword": "Parolni tiklash",
+  "DoNotHaveAnAccount": "Sizda hisob yo'q",
+  "SignIn": "Kirish",
+
+
+  "EmailSent": "Xat yuborildi",
+  "WeHaveSentAPasswordResetLinkTo": "Biz parolni tiklash havolasini yubordik",
+  "DidNotReceive": "Olmadim",
+  "Resend": "Qayta yuborish",
+  "BackToLogin": "Kirish sahifasiga qaytish",
+
+
+  "Hi": "Salom",
+  "WelcomeToRegistration" : "Ro'yxatdan o'tishga xush kelibsiz",
+  "SignUpDetails" : "Roʻyxatdan oʻtish tafsilotlari",
+  "FirstName": "Ismingiz",
+  "LastName": "Familiyangiz",
+  "ThisWillBeYourUserName": "Bu sizning foydalanuvchi nomingiz bo'ladi",
+  "ConfirmPassword": "Parolni tasdiqlang",
+  "IDoNotWishToReceive" : "Men nomidan yangiliklar, maxsus takliflar va boshqalarni olishni xohlamayman.",
+  "JoinNow": "Hoziroq qo'shil",
+
+
+  "CreateYourPinCode" : "PIN kodingizni yarating",
+  "CreateA5DigitPIN" : "Har safar tizimga kirganingizda foydalaniladigan 5 xonali PIN kod yarating.",
+  "Confirm": "Tasdiqlang",
+
+  "PopularAnimals": "Mashhur hayvonlar",
+  "ViewAll": "Hammasini ko'rish",
+  "Buy" : "sotib olish",
+
+
+  "ToAnnounce": "E'lon qiling",
+  "Animals": "Hayvonlar",
+  "Dogs" : "Itlar",
+  "Cats" : "Mushuklar",
+  "Ducks" : "O'rdaklar",
+  "UploadYourFileHere" : "Faylingizni shu yerga yuklang",
+  "Browse" : "Ko‘rib chiqish",
+  "Name" : "Ism",
+  "Title" : "Sarlavha",
+  "TypeSomething" : "Biror narsa kiriting",
+  "Price" : "Narx",
+  "PhoneNumber" : "Telefon raqami",
+  "Location" : "Manzil",
+  "Country" : "Bir mamlakat",
+  "Region" : "Mintaqa",
+  "Description" : "Tavsif",
+  "TypeHere" : "Bu yerga kiring",
+  "Upload" : "Yuklab olish",
+
+
+  "Complain" : "Shikoyat qiling",
+  "ReportUser" : "Foydalanuvchi haqida xabar berish",
+  "CopyLink": "Havolani nusxalash",
+  "PlacedOn" : "E'lon qilingan",
+  "Status" : "Holat",
+  "Available" : "Foydalanish mumkin",
+  "Unavailable" : "Mavjud emas",
+  "Call" : "Qo'ng'iroq qiling",
+
+
+  "Delete": "Oʻchirish",
+  "Cancel" : "Bekor qilish",
+  "AreYouSure" : "Haqiqatan ham bu elementni oʻchirib tashlamoqchimisiz? uni qayta tiklay olmaysiz",
+  "Editing" : "Tahrirlash",
+  "DescriptionProduct":"Mahsulot tavsifi",
+
+
+  "ActiveProducts" : "Faol mahsulotlar",
+
+
+  "WelcomeTo":"Xush kelibsiz",
+  "NaturalTrading":"Tabiiy savdo",
+  "AnimalType":"Hayvon turi",
+  "BelgilanganTartibdaQaytadanToldiring":"Belgilangan tartibda qaytadan to`ldiring",
+  "PinCodeXatoQaytadanUriningKoring":"Pin code xato qaytadan urining ko`ring",
+  "createdSuccessfully":"Muvaffaqiyatli Yaratildi"
+}

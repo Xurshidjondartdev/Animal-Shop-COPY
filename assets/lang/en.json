@@ -1,0 +1,107 @@
+{
+    "Hello": "Hello",
+    "GoodAnimals": "Good Animals",
+    "GoodMoments": "Good Moments",
+    "EnjoyTheMomentWithYourPet": "Enjoy the moment with your pet",
+    "GetStarted": "Get started",
+
+    "SendCode" : "Send code in your e-mail",
+    "PersonalD": "Personal Details",
+
+    "GoodMorning": "Good Morning",
+    "WelcomeBack": "Welcome back",
+    "Password": "Password",
+    "KeepMeLoggedIn" : "Keep me logged in",
+    "ForgotPassword" : "Forgot password?",
+    "Login" : "Login",
+    "LoginWithFacebook": "Login with Facebook",
+    "LoginWithGoogle" : "Login with Google",
+    "Or" : "OR",
+    "IfYouDoNotHaveAnAccount" : "If you don't have an account: ",
+    "CreateAccount" : "Create account",
+    "Email": "Email",
+
+    "AllDone" : "All done",
+    "ThanksForGivingUs" : "Thanks for giving us your precious time. Now you are ready for an enjoyable moment",
+    "LetsGo": "Let's Go",
+
+
+    "DoNotWorry" : "Don't worry! Enter your registered email below to receive password instructions",
+    "RememberPassword": "Remember password",
+    "ResetPassword": "Reset password",
+    "DoNotHaveAnAccount": "Don't have an account",
+    "SignIn": "Sign in",
+
+
+    "EmailSent": "Email sent",
+    "WeHaveSentAPasswordResetLinkTo": "We have sent a password reset link to ",
+    "DidNotReceive": "Didn't receive",
+    "Resend": "Resend",
+    "BackToLogin": "Back to login",
+
+
+    "Hi": "Hi",
+    "WelcomeToRegistration" : "Welcome to registration",
+    "SignUpDetails" : "Sign up details",
+    "FirstName": "First name",
+    "LastName": "Last name",
+    "ThisWillBeYourUserName": "This will be your username",
+    "ConfirmPassword": "Confirm password",
+    "IDoNotWishToReceive" : "I don't wish to receive news, special offers and more form Name",
+    "JoinNow": "Join now",
+
+
+    "CreateYourPinCode" : "Create your PIN code",
+    "CreateA5DigitPIN" : "Create a 5-digit PIN code that will be used every time you login",
+    "Confirm": "Confirm",
+
+    "PopularAnimals": "Popular animals",
+    "ViewAll": "View all",
+    "Buy" : "buy",
+
+
+    "ToAnnounce": "To announce",
+    "Animals": "Animals",
+    "Dogs" : "Dogs",
+    "Cats" : "Cats",
+    "Ducks" : "Ducks",
+    "UploadYourFileHere" : "Upload your file here",
+    "Browse" : "Browse",
+    "Name" : "Name",
+    "Title" : "Title",
+    "TypeSomething" : "Type something",
+    "Price" : "Price",
+    "PhoneNumber" : "Phone number",
+    "Location" : "Location",
+    "Country" : "Country",
+    "Region" : "Region",
+    "Description" : "Description",
+    "TypeHere" : "Type here",
+    "Upload" : "Upload",
+
+
+    "Complain" : "Complain",
+    "ReportUser" : "Report user",
+    "CopyLink": "Copy link",
+    "PlacedOn" : "Placed on",
+    "Status" : "Status",
+    "Available" : "Available",
+    "Unavailable" : "Unavailable",
+    "Call" : "Call",
+
+
+    "Delete": "Delete",
+    "Cancel" : "Cancel",
+    "AreYouSure" : "Are you sure to delete this item? you will not be able to recover it ",
+    "Editing" : "Editing",
+    "DescriptionProduct":"Description product",
+
+    "ActiveProducts" : "Active products",
+
+    "WelcomeTo":"Welcome to",
+    "NaturalTrading":"Natural trading",
+    "AnimalType":"Animal type",
+    "BelgilanganTartibdaQaytadanToldiring":"Fill in the specified order",
+    "PinCodeXatoQaytadanUriningKoring":"Pin code error Please try again",
+    "createdSuccessfully":"Created Successfully"
+}
