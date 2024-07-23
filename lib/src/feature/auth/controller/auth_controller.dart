@@ -1,10 +1,14 @@
+import "dart:convert";
 import "dart:developer";
 
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
+import "package:http/http.dart" as http;
 import "package:shared_preferences/shared_preferences.dart";
 
+import "../../../../setup.dart";
+import "../../../core/api/api.dart";
 import "../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../core/localization/words.dart";
 import "../../../core/routes/app_route_name.dart";
@@ -54,14 +58,49 @@ class AuthController with ChangeNotifier {
     }
   }
 
+  static Future<String?> POSTPossword({
+    required String api,
+    required Map<String, dynamic>? body,
+    required Map<String, dynamic>? param,
+  }) async {
+    final Uri url = Uri.http(
+      Api.BASEURL,
+      api,
+      param,
+    );
+    log("URL  $url");
+    final http.Response response = await http.post(
+      url,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "$token",
+      },
+
+      // Bu yerga header qo'shildi 00001
+      body: jsonEncode(body),
+    );
+    log("response: ${response.body}");
+    debugPrint("<<<statuseCode: ${response.statusCode} >>>>>>>>>>");
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log("Response body:>><<  ${response.body} >><<");
+      return response.body;
+    }
+    return null;
+  }
+
   Future<void> checkPincode({
     required BuildContext context,
     required String pincode,
   }) async {
-    final result = await AppRepositoryImpl().checkPincode(
-      pincode: pincode,
+    final result = await POSTPossword(
+      api: Api.apiCheckPassword,
+      body: {},
+      param: {
+        "code": pincode,
+      },
     );
-    log("$result");
+
+    log("check pincode $result");
     if (result != null) {
       if (context.mounted) {
         context.goNamed(AppRouteName.loginPage);
@@ -69,11 +108,7 @@ class AuthController with ChangeNotifier {
           Words.createdSuccessfully.tr(context),
           context,
         );
-        context.goNamed(
-          AppRouteName.loginPage,
-        );
       }
-      debugPrint("<<<<<<<<<<<<<$result>>>>>>>>>>>>>");
     } else {
       if (context.mounted) {
         Utils.fireSnackBar(
