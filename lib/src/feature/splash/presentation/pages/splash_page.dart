@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
     Timer(
       const Duration(seconds: 2),
       () {
-        token != null
+        token == null
             ? context.go(AppRouteName.onBoarding)
             : context.goNamed(AppRouteName.mainPage);
       },

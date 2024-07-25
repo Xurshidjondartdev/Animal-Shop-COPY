@@ -1,6 +1,7 @@
 import "dart:developer";
 import "package:flutter/cupertino.dart";
 import "../../../../setup.dart";
+import "../../../feature/profile/profile_model.dart";
 import "../../api/api.dart";
 import "../../storage/app_storage.dart";
 import "app_repostory.dart";
