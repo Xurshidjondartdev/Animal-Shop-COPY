@@ -16,6 +16,7 @@ class Api {
   static String apiCheckPassword = "/api/email/check-password";
   static String apiLogin = "/api/auth";
   static String apiGetPostAll = "/api/post/get-all";
+  static String postProduct = "/api/post/save-post";
 
 
   // headers
@@ -39,6 +40,7 @@ class Api {
   static Future<String?> POST({
     required String api,
     required Map<String, dynamic>? body,
+    // Map<String, dynamic>? param,
   }) async {
     final Uri url = Uri.http(
       BASEURL,
