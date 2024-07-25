@@ -113,6 +113,7 @@ final class AppRepositoryImpl implements AppRepository {
       log("post malumotlari keldi  $result");
       return result;
     } else {
+      //null
       return null;
     }
   }
