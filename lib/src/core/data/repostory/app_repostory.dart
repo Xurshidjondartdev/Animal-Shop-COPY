@@ -17,4 +17,6 @@ abstract class AppRepository {
   });
 
   Future<String?> getUserInfo();
+
+  Future<String?> getPostAll();
 }

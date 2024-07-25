@@ -51,16 +51,19 @@ class HomePage extends StatelessWidget {
                       height: 495.h,
                       width: double.infinity,
                       child: GridView.builder(
-                        itemCount: 8,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
+                        itemCount: 2,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 15,
                           childAspectRatio: 0.69,
                         ),
                         itemBuilder: (BuildContext context, int index) {
-                          return const HomeCardWidget();
+                          return HomeCardWidget(
+                            image: ref.postModel?.content?[index].imagesUrls?[1],
+                            name: ref.postModel?.content?[index].title,
+                            price: ref.postModel?.content?[index].phone,
+                          );
                         },
                       ),
                     ),

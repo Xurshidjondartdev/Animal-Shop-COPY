@@ -98,7 +98,21 @@ final class AppRepositoryImpl implements AppRepository {
       log("profile malumotlari keldi");
       return result;
     } else {
-    log("profile kelmadi");
+      log("profile kelmadi");
+      return null;
+    }
+  }
+
+  @override
+  Future<String?> getPostAll() async {
+    final result = await Api.GET(
+      api: Api.apiGetPostAll,
+    );
+    log("post");
+    if (result != null) {
+      log("post malumotlari keldi  $result");
+      return result;
+    } else {
       return null;
     }
   }

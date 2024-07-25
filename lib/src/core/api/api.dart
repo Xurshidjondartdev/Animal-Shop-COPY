@@ -15,6 +15,8 @@ class Api {
   static String apiPostRegister = "/api/user/settings/register";
   static String apiCheckPassword = "/api/email/check-password";
   static String apiLogin = "/api/auth";
+  static String apiGetPostAll = "/api/post/get-all";
+
 
   // headers
   static Map<String, String> headers = <String, String>{
