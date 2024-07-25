@@ -11,9 +11,9 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 2),
       () {
-        token == null
+        token != null
             ? context.go(AppRouteName.onBoarding)
             : context.goNamed(AppRouteName.mainPage);
       },

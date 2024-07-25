@@ -11,6 +11,7 @@ import "../../../core/api/api.dart";
 import "../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../core/localization/words.dart";
 import "../../../core/routes/app_route_name.dart";
+import "../../../core/storage/app_storage.dart";
 import "../../../core/utils/utils.dart";
 import "../model/token_model.dart";
 
@@ -118,7 +119,7 @@ class AuthController with ChangeNotifier {
     }
   }
 
-  Future<void> loginUser({
+  Future<TokenModel?> loginUser({
     required BuildContext context,
     required String email,
     required String password,
@@ -128,10 +129,12 @@ class AuthController with ChangeNotifier {
       password: password,
     );
     if (result != null) {
-      final TokenModel tokenModel = tokenModelFromJson(result);
+      final tokenModel = tokenModelFromJson(result);
+      await UserStorage.store(key: StorageKey.token, value: tokenModel.token!);
+      await UserStorage.store(
+          key: StorageKey.refreshToken, value: tokenModel.refreshToken!,);
 
-      log("login      ${tokenModel.token}  ${tokenModel.refreshToken}");
-
+      log("login  token kor  $token");
       if (context.mounted) {
         context.goNamed(AppRouteName.mainPage);
         Utils.fireSnackBar(
@@ -139,6 +142,7 @@ class AuthController with ChangeNotifier {
           context,
         );
       }
+      return tokenModel;
     } else {
       if (context.mounted) {
         Utils.fireSnackBar(
@@ -147,6 +151,7 @@ class AuthController with ChangeNotifier {
         );
       }
     }
+    return null;
   }
 
   void changeLanguage(String newLanguage) {

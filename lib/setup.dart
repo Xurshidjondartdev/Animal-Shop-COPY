@@ -13,6 +13,8 @@ String? refreshToken;
 
 Future<void> getStorageValues() async {
   token = await UserStorage.load(key: StorageKey.token);
+  refreshToken = await UserStorage.load(key: StorageKey.refreshToken);
+
   l.w(
     token ??
         "------\n------------\n-----------\n-------"
