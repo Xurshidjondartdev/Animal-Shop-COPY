@@ -41,7 +41,6 @@ final class AppRepositoryImpl implements AppRepository {
     if (result != null) {
       await UserStorage.store(key: StorageKey.token, value: result);
       token = result;
-      log("token1: $token");
       return result;
     } else {
       return null;
@@ -58,8 +57,6 @@ final class AppRepositoryImpl implements AppRepository {
         "code": pincode,
       },
     );
-    log("token2 $token");
-
     if (result != null) {
       log("<<<<<<<<<<<<<<<<<<<<<<<<<<$result>>>>>>>>>>>>>>>>>>>>>>>>>");
       return result;
@@ -80,9 +77,9 @@ final class AppRepositoryImpl implements AppRepository {
         "password": password,
       },
     );
-    log("login user");
+    log("loginga keldi");
     if (result != null) {
-      log(" login qildi");
+      log("login qildi");
       await UserStorage.store(key: StorageKey.token, value: result);
       token = result;
       return result;
@@ -96,13 +93,12 @@ final class AppRepositoryImpl implements AppRepository {
     final result = await Api.GET(
       api: Api.apiLogin,
     );
-    log("login user");
+    log("profile");
     if (result != null) {
-      log(" login qildi");
-      await UserStorage.store(key: StorageKey.token, value: result);
-      token = result;
+      log("profile malumotlari keldi");
       return result;
     } else {
+    log("profile kelmadi");
       return null;
     }
   }

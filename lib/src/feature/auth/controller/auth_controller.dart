@@ -75,7 +75,6 @@ class AuthController with ChangeNotifier {
         "Content-Type": "application/json",
         "Authorization": "$token",
       },
-
       // Bu yerga header qo'shildi 00001
       body: jsonEncode(body),
     );

@@ -69,6 +69,7 @@ class LoginPage extends StatelessWidget {
                       height: 50,
                       width: 400,
                       child: TextField(
+                        keyboardType: TextInputType.emailAddress,
                         controller: ref.emailController,
                         style: TextStyle(
                           color: Colors.black,

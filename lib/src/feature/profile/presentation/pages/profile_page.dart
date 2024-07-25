@@ -1,12 +1,12 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:provider/provider.dart";
-import "../../core/localization/words.dart";
-import "../../core/style/colors.dart";
-import "../../core/style/text_style.dart";
-import "../../core/widget/button_widget.dart";
-import "../auth/presentation/widgets/text_widget.dart";
-import "controller/profile_controller.dart";
+import "../../../../core/localization/words.dart";
+import "../../../../core/style/colors.dart";
+import "../../../../core/style/text_style.dart";
+import "../../../../core/widget/button_widget.dart";
+import "../../../auth/presentation/widgets/text_widget.dart";
+import "../../controller/profile_controller.dart";
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -38,26 +38,28 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10.h,),
+              SizedBox(height: 10.h),
               Text(
                 ref.userModel?.username ?? "null",
                 style: const AppTextStyle().forPas?.copyWith(
-                  fontSize: 15.sp,
-                  height: 2,
-                  letterSpacing: -0.5,
-                  color: AppColors.black,
-                ),
+                      fontSize: 15.sp,
+                      height: 2,
+                      letterSpacing: -0.5,
+                      color: AppColors.black,
+                    ),
               ),
               Text(
                 "ref.e.text",
                 style: const AppTextStyle().onlineRecordTitleLarge?.copyWith(
-                  fontFamily: "Poppins",
-                  height: 2,
-                  letterSpacing: -0.5,
-                  color: AppColors.c868889,
-                ),
+                      fontFamily: "Poppins",
+                      height: 2,
+                      letterSpacing: -0.5,
+                      color: AppColors.c868889,
+                    ),
               ),
-              SizedBox(height: 21.h,),
+              SizedBox(
+                height: 21.h,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Column(
@@ -111,7 +113,10 @@ class ProfilePage extends StatelessWidget {
               const Spacer(flex: 3),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: MainButton(onPressed: (){}, text: Words.AllDone.tr(context)),
+                child: MainButton(
+                  onPressed: () {},
+                  text: Words.AllDone.tr(context),
+                ),
               ),
               const Spacer(),
             ],

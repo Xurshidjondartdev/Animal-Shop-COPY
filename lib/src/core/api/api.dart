@@ -9,7 +9,7 @@ import "../../../setup.dart";
 
 class Api {
   // baseUrl
-  static const String BASEURL = "10.10.3.151:8080";
+  static const String BASEURL = "10.10.2.97:8080";
 
   // APIS
   static String apiPostRegister = "/api/user/settings/register";

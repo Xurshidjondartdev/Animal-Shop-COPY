@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
@@ -88,21 +86,18 @@ class RegistrationPage extends StatelessWidget {
                     ),
                     SizedBox(height: 90.h),
                     textField(ref.nameController, Words.FirstName.tr(context)),
-                    SizedBox(
-                      height: 15.h,
-                    ),
+                    SizedBox(height: 15.h),
                     textField(
                       ref.lastNameController,
                       Words.LastName.tr(context),
                     ),
                     SizedBox(height: 15.h),
                     textField(
+                      keyboardType: TextInputType.emailAddress,
                       ref.emailController,
                       Words.Email.tr(context),
                     ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
+                    SizedBox(height: 15.h),
                     SizedBox(
                       height: 50.h,
                       width: 400.w,
@@ -202,7 +197,6 @@ class RegistrationPage extends StatelessWidget {
                             ref.passwordController.text.length >= 4 &&
                             ref.confirmingController.text ==
                                 ref.passwordController.text) {
-                          log("bosildi");
                           await ref.authUser(
                             context: context,
                             firsName: ref.nameController.text,
