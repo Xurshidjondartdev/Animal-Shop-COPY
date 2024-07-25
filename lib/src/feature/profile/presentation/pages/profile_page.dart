@@ -1,12 +1,18 @@
+import "dart:developer";
+
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:provider/provider.dart";
+import "../../../../core/api/api.dart";
+import "../../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../../core/localization/words.dart";
 import "../../../../core/style/colors.dart";
 import "../../../../core/style/text_style.dart";
 import "../../../../core/widget/button_widget.dart";
 import "../../../auth/presentation/widgets/text_widget.dart";
+import "../../../auth/presentation/widgets/textfield_widget.dart";
 import "../../controller/profile_controller.dart";
+import "../../profile_model.dart";
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -40,7 +46,7 @@ class ProfilePage extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                ref.userModel?.username ?? "null",
+                "${ref.userModel?.firstName} ${ref.userModel?.lastName}",
                 style: const AppTextStyle().forPas?.copyWith(
                       fontSize: 15.sp,
                       height: 2,
@@ -49,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                     ),
               ),
               Text(
-                "ref.e.text",
+                ref.userModel?.username ?? "null",
                 style: const AppTextStyle().onlineRecordTitleLarge?.copyWith(
                       fontFamily: "Poppins",
                       height: 2,
@@ -75,49 +81,64 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 16.h),
-                    // ColoredBox(
-                    //   color: Colors.white,
-                    //   child: textField(
-                    //     keyboardType: TextInputType.text,
-                    //     "ref.nameController",
-                    //     Words.Name.tr(context),
-                    //     icon: const Icon(Icons.mode_edit_rounded),
-                    //     secondIcon: const Icon(Icons.account_circle_outlined),
-                    //   ),
-                    // ),
+                    textField(
+                      keyboardType: TextInputType.text,
+                      ref.firstC,
+                      "${ref.userModel!.firstName}",
+                      icon: const Icon(Icons.mode_edit_rounded),
+                      secondIcon: const Icon(Icons.account_circle_outlined),
+                    ),
                     SizedBox(height: 5.h),
-                    // ColoredBox(
-                    //   color: Colors.white,
-                    //   child: textField(
-                    //     keyboardType: TextInputType.emailAddress,
-                    //     ref.emailController,
-                    //     Words.Email.tr(context),
-                    //     icon: const Icon(Icons.edit),
-                    //     secondIcon: const Icon(Icons.email_outlined),
-                    //   ),
-                    // ),
+                    textField(
+                      keyboardType: TextInputType.text,
+                      ref.lastC,
+                      "${ref.userModel!.lastName}",
+                      icon: const Icon(Icons.edit),
+                      secondIcon: const Icon(Icons.account_circle_outlined),
+                    ),
                     SizedBox(height: 5.h),
-                    // ColoredBox(
-                    //   color: Colors.white,
-                    //   child: textField(
-                    //     keyboardType: TextInputType.phone,
-                    //     ref.emailController,
-                    //     Words.PhoneNumber.tr(context),
-                    //     icon: const Icon(Icons.edit),
-                    //     secondIcon: const Icon(Icons.phone),
-                    //   ),
-                    // ),
+                    textField(
+                      keyboardType: TextInputType.emailAddress,
+                      ref.emailC,
+                      "${ref.userModel!.email}",
+                      icon: const Icon(Icons.edit),
+                      secondIcon: const Icon(Icons.email_outlined),
+                    ),
+                    SizedBox(height: 5.h),
                   ],
                 ),
               ),
               const Spacer(flex: 3),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: MainButton(
-                  onPressed: () {},
-                  text: Words.AllDone.tr(context),
-                ),
-              ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 24.w),
+              //   child: MainButton(
+              //     onPressed: () {
+              //       if (_formKey.currentState!.validate()) {
+              //         final user = User(
+              //           firstName: ref.firstC.text,
+              //           lastName: ref.lastC.text,
+              //           email: ref.emailC.text,
+              //           image: "",
+              //         );
+              //
+              //         context
+              //             .read<AppRepositoryImpl>()
+              //             .updateUser(user)
+              //             .then((_) {
+              //           ScaffoldMessenger.of(context).showSnackBar(
+              //             SnackBar(content: Text('User updated successfully')),
+              //           );
+              //         }).catchError((error) {
+              //           ScaffoldMessenger.of(context).showSnackBar(
+              //             SnackBar(
+              //                 content: Text('Failed to update user: $error')),
+              //           );
+              //         });
+              //       }
+              //     },
+              //     text: Words.AllDone.tr(context),
+              //   ),
+              // ),
               const Spacer(),
             ],
           ),
