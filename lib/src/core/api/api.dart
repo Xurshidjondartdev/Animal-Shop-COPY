@@ -40,7 +40,7 @@ class Api {
   static Future<String?> POST({
     required String api,
     required Map<String, dynamic>? body,
-    // Map<String, dynamic>? param,
+    Map<String, dynamic>? param,
   }) async {
     final Uri url = Uri.http(
       BASEURL,

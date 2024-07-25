@@ -116,6 +116,9 @@ final class AppRepositoryImpl implements AppRepository {
       //null
       return null;
     }
+  }
+
+  @override
   Future<String?> postProduct({
     required String userId,
     required String description,
@@ -126,7 +129,11 @@ final class AppRepositoryImpl implements AppRepository {
     required String gender,
     required List<String> images,
   }) async {
-    final result = await Api.POST(api: Api.postProduct, body: {});
+    final result = await Api.POST(
+      api: Api.postProduct,
+      body: {},
+      param: {},
+    );
 
   }
 }
