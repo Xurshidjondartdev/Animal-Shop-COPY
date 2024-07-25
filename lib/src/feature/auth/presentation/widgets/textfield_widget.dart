@@ -7,7 +7,7 @@ SizedBox textField(
   Icon? icon,
   String? underText,
   Widget? secondIcon,
-      TextInputType? keyboardType,
+  TextInputType? keyboardType,
 }) {
   return SizedBox(
     width: double.infinity,

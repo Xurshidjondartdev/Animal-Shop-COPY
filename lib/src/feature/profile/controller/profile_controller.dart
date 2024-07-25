@@ -17,7 +17,7 @@ class ProfileController extends ChangeNotifier {
   UserModel? userModel;
   Future<void> getUserInfo() async {
     final result = await AppRepositoryImpl().getUserInfo();
-    if (result != null){
+    if (result != null) {
       userModel = userModelFromJson(result);
       firstC.text = "${userModel!.firstName}";
       lastC.text = "${userModel!.lastName}";
@@ -35,19 +35,13 @@ class ProfileController extends ChangeNotifier {
     emailC.dispose();
     // numberC.dispose();
   }
+
   Future<void> updateUser(User user) async {
-    try {
-      final response = await Api.PUT(Api.apiPostRegister, user.toJson(), Api.emptyParams());
-      if (response != null) {
-        // Handle success
-        notifyListeners();
-      } else {
-        // Handle error
-        throw Exception('Failed to update user');
-      }
-    } catch (e) {
-      // Handle error
-      throw e;
+    final response = await Api.PUT(Api.apiPostRegister, user.toJson(), Api.emptyParams());
+    if (response != null) {
+      notifyListeners();
+    } else {
+      throw Exception("Failed to update user");
     }
   }
 }

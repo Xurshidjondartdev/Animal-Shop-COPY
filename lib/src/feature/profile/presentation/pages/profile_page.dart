@@ -1,18 +1,12 @@
-import "dart:developer";
-
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:provider/provider.dart";
-import "../../../../core/api/api.dart";
-import "../../../../core/data/repostory/app_repostory_implementation.dart";
 import "../../../../core/localization/words.dart";
 import "../../../../core/style/colors.dart";
 import "../../../../core/style/text_style.dart";
-import "../../../../core/widget/button_widget.dart";
 import "../../../auth/presentation/widgets/text_widget.dart";
 import "../../../auth/presentation/widgets/textfield_widget.dart";
 import "../../controller/profile_controller.dart";
-import "../../profile_model.dart";
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

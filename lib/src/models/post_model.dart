@@ -33,9 +33,7 @@ class PostModel {
         first: json["first"],
         last: json["last"],
         numberOfElements: json["numberOfElements"],
-        pageable: json["pageable"] == null
-            ? null
-            : Pageable.fromJson(json["pageable"]),
+        pageable: json["pageable"] == null ? null : Pageable.fromJson(json["pageable"]),
         empty: json["empty"],
       );
   int? totalPages;
@@ -54,9 +52,7 @@ class PostModel {
         "totalPages": totalPages,
         "totalElements": totalElements,
         "size": size,
-        "content": content == null
-            ? []
-            : List<dynamic>.from(content!.map((x) => x.toJson())),
+        "content": content == null ? [] : List<dynamic>.from(content!.map((x) => x.toJson())),
         "number": number,
         "sort": sort?.toJson(),
         "first": first,
@@ -83,17 +79,13 @@ class Content {
   factory Content.fromJson(Map<String, dynamic> json) => Content(
         id: json["id"],
         isDeleted: json["isDeleted"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
+        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
         title: json["title"],
         description: json["description"],
         phone: json["phone"],
         animal: json["animal"] == null ? null : Animal.fromJson(json["animal"]),
         user: json["user"] == null ? null : User.fromJson(json["user"]),
-        imagesUrls: json["imagesUrls"] == null
-            ? []
-            : List<String>.from(json["imagesUrls"]!.map((x) => x)),
+        imagesUrls: json["imagesUrls"] == null ? [] : List<String>.from(json["imagesUrls"]!.map((x) => x)),
       );
   String? id;
   bool? isDeleted;
@@ -114,9 +106,7 @@ class Content {
         "phone": phone,
         "animal": animal?.toJson(),
         "user": user?.toJson(),
-        "imagesUrls": imagesUrls == null
-            ? []
-            : List<dynamic>.from(imagesUrls!.map((x) => x)),
+        "imagesUrls": imagesUrls == null ? [] : List<dynamic>.from(imagesUrls!.map((x) => x)),
       };
 }
 
@@ -133,13 +123,9 @@ class Animal {
   factory Animal.fromJson(Map<String, dynamic> json) => Animal(
         id: json["id"],
         isDeleted: json["isDeleted"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
+        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
         name: json["name"],
-        category: json["category"] == null
-            ? null
-            : Category.fromJson(json["category"]),
+        category: json["category"] == null ? null : Category.fromJson(json["category"]),
         gander: json["gander"],
       );
   String? id;
@@ -170,9 +156,7 @@ class Category {
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json["id"],
         isDeleted: json["isDeleted"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
+        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
         name: json["name"],
       );
   String? id;
@@ -221,9 +205,7 @@ class User {
                 json["roles"]!.map((x) => Authority.fromJson(x)),
               ),
         isDeleted: json["isDeleted"],
-        createdAt: json["createdAt"] == null
-            ? null
-            : DateTime.parse(json["createdAt"]),
+        createdAt: json["createdAt"] == null ? null : DateTime.parse(json["createdAt"]),
         imagePath: json["imagePath"],
         username: json["username"],
         authorities: json["authorities"] == null
@@ -260,16 +242,12 @@ class User {
         "email": email,
         "phone": phone,
         "region": region,
-        "roles": roles == null
-            ? []
-            : List<dynamic>.from(roles!.map((x) => x.toJson())),
+        "roles": roles == null ? [] : List<dynamic>.from(roles!.map((x) => x.toJson())),
         "isDeleted": isDeleted,
         "createdAt": createdAt?.toIso8601String(),
         "imagePath": imagePath,
         "username": username,
-        "authorities": authorities == null
-            ? []
-            : List<dynamic>.from(authorities!.map((x) => x.toJson())),
+        "authorities": authorities == null ? [] : List<dynamic>.from(authorities!.map((x) => x.toJson())),
         "enabled": enabled,
         "accountNonLocked": accountNonLocked,
         "accountNonExpired": accountNonExpired,
