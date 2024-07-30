@@ -9,14 +9,17 @@ class HomeController extends ChangeNotifier {
     getPostAll();
   }
   TextEditingController searchController = TextEditingController();
-
-  GetPostModel? getPostModel;
+  bool isLoading=true;
+  List<GetPostModel>? getPostModel;
   Future<void> getPostAll() async {
+    isLoading=true;
     log("GetPostModel ");
     final result = await AppRepositoryImpl().getPostAll();
     if (result != null) {
       log("Controller GetPostModel ");
-      getPostModel = getPostModelFromJson(result) as GetPostModel?; //xato beryapti
+      getPostModel = result; //xato beryapti
+      isLoading=false;
     }
+    notifyListeners();
   }
 }

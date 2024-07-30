@@ -1,6 +1,7 @@
 import "dart:developer";
 import "package:flutter/cupertino.dart";
 import "../../../../setup.dart";
+import "../../../models/get_post_model.dart";
 import "../../api/api.dart";
 import "../../storage/app_storage.dart";
 import "app_repostory.dart";
@@ -104,14 +105,14 @@ final class AppRepositoryImpl implements AppRepository {
   }
 
   @override
-  Future<String?> getPostAll() async {
+  Future<List<GetPostModel>?> getPostAll() async {
     final result = await Api.GET(params: Api.paramGetPostAll(),
       api: Api.apiGetPostAll,
     );
     log("post");
     if (result != null) {
       log("post malumotlari keldi  $result");
-      return result;
+      return getPostModelFromJson(result);
     } else {
       return null;
     }

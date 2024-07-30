@@ -1,3 +1,5 @@
+import "../../../models/get_post_model.dart";
+
 abstract class AppRepository {
   Future<String?> authUser({
     required String firsName,
@@ -18,7 +20,7 @@ abstract class AppRepository {
 
   Future<String?> getUserInfo();
 
-  Future<String?> getPostAll();
+  Future<List<GetPostModel>?> getPostAll();
 
   // Future<String?> postProduct({
   //   required String userId,

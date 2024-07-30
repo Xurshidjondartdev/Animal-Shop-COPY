@@ -36,103 +36,117 @@ class HomePage extends StatelessWidget {
               onTap: () => context.goNamed(AppRouteName.serchingPage),
             ),
           ),
-          body: Center(
-            child: Padding(
-              padding: REdgeInsets.symmetric(horizontal: 24),
-              child: Column(
-                children: <Widget>[
-                  SizedBox(height: 20.h),
-                  MyRowWidget(
-                    onPressed: () => context.goNamed(AppRouteName.katalogPage),
-                  ),
-                  SizedBox(height: 20.h),
-                  Expanded(
-                    flex: 7,
-                    child: SizedBox(
-                      height: 495.h,
-                      width: double.infinity,
-                      child: GridView.builder(
-                        itemCount: 2,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 15,
-                          childAspectRatio: 0.69,
+          body: ref.isLoading
+              ? const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                )
+              : Center(
+                  child: Padding(
+                    padding: REdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height: 20.h),
+                        MyRowWidget(
+                          onPressed: () =>
+                              context.goNamed(AppRouteName.katalogPage),
                         ),
-                        itemBuilder: (BuildContext context, int index) {
-                          return SizedBox(
-                            width: 156.w,
-                            height: 184.h,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 154.h,
+                        SizedBox(height: 20.h),
+                        Expanded(
+                          flex: 7,
+                          child: SizedBox(
+                            height: 495.h,
+                            width: double.infinity,
+                            child: GridView.builder(
+                              itemCount: ref.getPostModel!.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 10,
+                                mainAxisSpacing: 15,
+                                childAspectRatio: 0.69,
+                              ),
+                              itemBuilder: (BuildContext context, int index) {
+                                return SizedBox(
                                   width: 156.w,
-                                  child: DecoratedBox(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image:  DecorationImage(
-                                        image: NetworkImage(
-                                        ref.getPostModel?.imagesUrls?[index] ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
-                                        ),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 156.w,
-                                  child: ListTile(
-                                    title: Text(
-                                      overflow: TextOverflow.ellipsis,
-                                    ref.getPostModel?.description??  "nul",
-                                      style: TextStyle(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w700,
-                                        color: AppColors.l00623B,
-                                      ),
-                                    ),
-                                    subtitle: Text(
-                                     ref.getPostModel?.id?? r"$00.0",
-                                      style: TextStyle(
-                                        fontSize: 8.sp,
-                                        fontWeight: FontWeight.w700,
-                                        color: AppColors.l00623B,
-                                      ),
-                                    ),
-                                    trailing: ElevatedButton(
-                                      onPressed: () {
-                                        if (context.mounted) {
-                                          context.goNamed(AppRouteName.detailPage);
-                                        }
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        padding: EdgeInsets.zero,
-                                        backgroundColor: AppColors.l00623B,
-                                        fixedSize: Size(44.w, 20.h),
-                                      ),
-                                      child: Text(
-                                        Words.Buy.tr(context),
-                                        style: TextStyle(
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w700,
-                                          color: AppColors.white,
+                                  height: 184.h,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 154.h,
+                                        width: 156.w,
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                ref.getPostModel?[index]
+                                                        .imagesUrls?[index] ??
+                                                    "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
+                                              ),
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                      SizedBox(
+                                        width: 156.w,
+                                        child: ListTile(
+                                          title: Text(
+                                            overflow: TextOverflow.ellipsis,
+                                            ref.getPostModel?[index]
+                                                    .description ??
+                                                "nul",
+                                            style: TextStyle(
+                                              fontSize: 10.sp,
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColors.l00623B,
+                                            ),
+                                          ),
+                                          subtitle: Text(
+                                            ref.getPostModel?[index].id ??
+                                                r"$00.0",
+                                            style: TextStyle(
+                                              fontSize: 8.sp,
+                                              fontWeight: FontWeight.w700,
+                                              color: AppColors.l00623B,
+                                            ),
+                                          ),
+                                          trailing: ElevatedButton(
+                                            onPressed: () {
+                                              if (context.mounted) {
+                                                context.goNamed(
+                                                    AppRouteName.detailPage);
+                                              }
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              padding: EdgeInsets.zero,
+                                              backgroundColor:
+                                                  AppColors.l00623B,
+                                              fixedSize: Size(44.w, 20.h),
+                                            ),
+                                            child: Text(
+                                              Words.Buy.tr(context),
+                                              style: TextStyle(
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w700,
+                                                color: AppColors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ],
+                                );
+                              },
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
+                ),
         );
       },
     );
