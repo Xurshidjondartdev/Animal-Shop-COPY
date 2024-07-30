@@ -117,6 +117,11 @@ final class AppRepositoryImpl implements AppRepository {
     }
   }
 
+  /// @override
+  /// Future<String?> favorites({required userId, required postId}) {
+  ///   return "";
+  /// }
+
   // @override
   // Future<String?> postProduct({
   //   required String userId,
