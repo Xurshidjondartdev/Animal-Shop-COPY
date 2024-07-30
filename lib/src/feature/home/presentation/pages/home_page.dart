@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:go_router/go_router.dart";
 import "package:provider/provider.dart";
+import "../../../../core/localization/words.dart";
 import "../../../../core/routes/app_route_name.dart";
 import "../../../../core/style/colors.dart";
 import "../../controller/home_controller.dart";
@@ -59,10 +60,70 @@ class HomePage extends StatelessWidget {
                           childAspectRatio: 0.69,
                         ),
                         itemBuilder: (BuildContext context, int index) {
-                          return HomeCardWidget(
-                            image: ref.postModel?.content?[index].imagesUrls?[1],
-                            name: ref.postModel?.content?[index].title,
-                            price: ref.postModel?.content?[index].phone,
+                          return SizedBox(
+                            width: 156.w,
+                            height: 184.h,
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 154.h,
+                                  width: 156.w,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image:  DecorationImage(
+                                        image: NetworkImage(
+                                        ref.getPostModel?.imagesUrls?[index] ?? "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 156.w,
+                                  child: ListTile(
+                                    title: Text(
+                                      overflow: TextOverflow.ellipsis,
+                                    ref.getPostModel?.description??  "nul",
+                                      style: TextStyle(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.l00623B,
+                                      ),
+                                    ),
+                                    subtitle: Text(
+                                     ref.getPostModel?.id?? r"$00.0",
+                                      style: TextStyle(
+                                        fontSize: 8.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.l00623B,
+                                      ),
+                                    ),
+                                    trailing: ElevatedButton(
+                                      onPressed: () {
+                                        if (context.mounted) {
+                                          context.goNamed(AppRouteName.detailPage);
+                                        }
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        padding: EdgeInsets.zero,
+                                        backgroundColor: AppColors.l00623B,
+                                        fixedSize: Size(44.w, 20.h),
+                                      ),
+                                      child: Text(
+                                        Words.Buy.tr(context),
+                                        style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w700,
+                                          color: AppColors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           );
                         },
                       ),

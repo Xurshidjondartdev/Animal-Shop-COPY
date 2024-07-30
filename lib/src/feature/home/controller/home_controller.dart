@@ -1,9 +1,8 @@
 import "dart:developer";
 
 import "package:flutter/widgets.dart";
-
 import "../../../core/data/repostory/app_repostory_implementation.dart";
-import "../../../models/post_model.dart";
+import "../../../models/get_post_model.dart";
 
 class HomeController extends ChangeNotifier {
   HomeController() {
@@ -11,15 +10,13 @@ class HomeController extends ChangeNotifier {
   }
   TextEditingController searchController = TextEditingController();
 
-  PostModel? postModel;
+  GetPostModel? getPostModel;
   Future<void> getPostAll() async {
+    log("GetPostModel ");
     final result = await AppRepositoryImpl().getPostAll();
-    log("message  $result");
     if (result != null) {
-      log(" log log :${postModel?.content?.first.animal?.isDeleted}");
-      postModel = postModelFromJson(result);
-      log(" postModel -----${postModel?.content?.first.animal}");
-      notifyListeners();
+      log("Controller GetPostModel ");
+      getPostModel = getPostModelFromJson(result) as GetPostModel?; //xato beryapti
     }
   }
 }

@@ -8,10 +8,23 @@ import "../../../../core/style/colors.dart";
 import "../../controller/home_controller.dart";
 
 class HomeCardWidget extends StatelessWidget {
-  const HomeCardWidget({super.key, this.image, this.name, this.price});
-  final String? image;
-  final String? name;
-  final String? price;
+  const HomeCardWidget({
+    super.key,
+    this.id,
+    this.isDeleted,
+    this.createdAt,
+    this.title,
+    this.description,
+    this.phone,
+    this.imagesUrls,
+  });
+  final String? id;
+  final bool? isDeleted;
+  final DateTime? createdAt;
+  final String? title;
+  final String? description;
+  final String? phone;
+  final List<String>? imagesUrls;
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +43,7 @@ class HomeCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
                       image: NetworkImage(
-                        image ??
-                            "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -43,7 +55,7 @@ class HomeCardWidget extends StatelessWidget {
                 child: ListTile(
                   title: Text(
                     overflow: TextOverflow.ellipsis,
-                    name ?? "Nomalum",
+                     "Nomalum",
                     style: TextStyle(
                       fontSize: 10.sp,
                       fontWeight: FontWeight.w700,
@@ -51,7 +63,7 @@ class HomeCardWidget extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    price ?? r"0$",
+                    r"0$",
                     style: TextStyle(
                       fontSize: 8.sp,
                       fontWeight: FontWeight.w700,

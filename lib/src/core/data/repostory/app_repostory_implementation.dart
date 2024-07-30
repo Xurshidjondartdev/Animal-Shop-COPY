@@ -105,7 +105,7 @@ final class AppRepositoryImpl implements AppRepository {
 
   @override
   Future<String?> getPostAll() async {
-    final result = await Api.GET(
+    final result = await Api.GET(params: Api.paramGetPostAll(),
       api: Api.apiGetPostAll,
     );
     log("post");

@@ -114,6 +114,10 @@ class Api {
   /// params
 
   static Map<String, String> emptyParams() => <String, String>{};
+  static Map<String, String> paramGetPostAll() => {
+        "page": "1",
+        "size": "2",
+      };
 
   /// body
 
