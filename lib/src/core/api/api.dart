@@ -2,125 +2,113 @@ import "dart:convert";
 import "dart:developer";
 import "package:flutter/material.dart";
 import "package:http/http.dart" as http;
-import "package:http/http.dart";
+import "package:http_interceptor/http_interceptor.dart";
 import "package:http_parser/http_parser.dart";
-
 import "../../../setup.dart";
+import "api_interceptor.dart";
 
 class Api {
   // baseUrl
-  static const String BASEURL = "10.10.2.97:8080";
+  static const String BASEURL = "10.10.3.28:8080";
 
   // APIS
-  static String apiPostRegister = "/api/user/settings/register";
-  static String apiCheckPassword = "/api/email/check-password";
-  static String apiLogin = "/api/auth";
-  static String apiGetPostAll = "/api/post/get-all";
-  static String postProduct = "/api/post/save-post";
-
+  static const String apiPostRegister = "/api/user/settings/register";
+  static const String apiCheckPassword = "/api/email/check-password";
+  static const String apiLogin = "/api/auth";
+  static const String apiGetPostAll = "/api/post/get-all";
+  static const String postProduct = "/api/post/save-post";
 
   // headers
-  static Map<String, String> headers = <String, String>{
+  static Map<String, String> headers = {
     "Content-Type": "application/json",
     "Authorization": "$token",
-    // "Accept": "application/json",
-    // "Cookie":"JSESSIONID=F9BCE137AC610BEB0A3EC80AD44F5EA6",
   };
 
-  //methods
-  static Future<String?> GET({required String api, Map<String, String>? params}) async {
-    final Uri url = Uri.http(BASEURL, api, params);
-    final http.Response response = await http.get(url, headers: headers);
+  // Intercepted client
+  static final http.Client client = InterceptedClient.build(
+    interceptors: [ApiInterceptor()],
+  );
+
+  // Generalized response handler
+  static Future<String?> handleResponse(http.Response response) async {
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     }
     return null;
   }
 
+  // GET method
+  static Future<String?> GET({required String api, Map<String, String>? params}) async {
+    final Uri url = Uri.http(BASEURL, api, params);
+    final http.Response response = await client.get(url, headers: headers);
+    return handleResponse(response);
+  }
+
+  // POST method
   static Future<String?> POST({
     required String api,
     required Map<String, dynamic>? body,
     Map<String, dynamic>? param,
   }) async {
-    final Uri url = Uri.http(
-      BASEURL,
-      api,
-    );
-    log("URL  $url");
-    final http.Response response = await http.post(
-      url,
-      headers: headers, // Bu yerga header qo'shildi
-      body: jsonEncode(body),
-    );
-    log("response: ${response.body}");
-    debugPrint("<<<statuseCode: ${response.statusCode} >>>>>>>>>>");
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      log("Response body:>><<  ${response.body} >><<");
-      return response.body;
-    }
-    return null;
+    final Uri url = Uri.http(BASEURL, api);
+    log("URL: $url");
+    final http.Response response = await client.post(url, headers: headers, body: jsonEncode(body));
+    log("Response: ${response.body}");
+    debugPrint("StatusCode: ${response.statusCode}");
+    return handleResponse(response);
   }
 
+  // PUT method
   static Future<String?> PUT(
     String api,
     Map<String, dynamic> body,
-    Map<String, dynamic> param,
+    Map<String, dynamic>? param,
   ) async {
     final Uri url = Uri.http(BASEURL, api, param);
-    final http.Response response =
-        await http.put(url, body: jsonEncode(body), headers: headers);
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
-    } else {
-      return null;
-    }
+    final http.Response response = await client.put(url, headers: headers, body: jsonEncode(body));
+    return handleResponse(response);
   }
 
+  // MULTIPART method
   static Future<String?> MULTIPART(
     String api,
     String filePath,
     Map<String, String> body,
   ) async {
     final Uri uri = Uri.http(BASEURL, api);
-    final http.MultipartRequest request = MultipartRequest("POST", uri);
-    request.headers.addAll(headers);
-    request.files.add(
-      await MultipartFile.fromPath(
-        "file",
-        filePath,
-        contentType: MediaType("file", "png"),
-      ),
-    );
-    request.fields.addAll(body);
-    final StreamedResponse response = await request.send();
+    final http.MultipartRequest request = http.MultipartRequest("POST", uri)
+      ..headers.addAll(headers)
+      ..files.add(
+        await http.MultipartFile.fromPath(
+          "file",
+          filePath,
+          contentType: MediaType("file", "png"),
+        ),
+      )
+      ..fields.addAll(body);
+    final http.StreamedResponse response = await request.send();
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.stream.bytesToString();
-    } else {
-      return response.reasonPhrase;
     }
+    return response.reasonPhrase;
   }
 
+  // PATCH method
   static Future<String?> PATCH(
     String api,
     Map<String, String> params,
     Map<String, dynamic> body,
   ) async {
-    final Uri url = Uri.http(BASEURL, api);
-    final http.Response response =
-        await http.patch(url, headers: headers, body: jsonEncode(body));
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
-    }
-    return null;
+    final Uri url = Uri.http(BASEURL, api, params);
+    final http.Response response = await client.patch(url, headers: headers, body: jsonEncode(body));
+    return handleResponse(response);
   }
 
-  static Future<String?> DELETE(String api, Map<String, String> params) async {
+  // DELETE method
+  static Future<String?> DELETE(String api, Map<String, String>? params) async {
     final Uri url = Uri.http(BASEURL, api, params);
-    final http.Response response = await http.delete(url, headers: headers);
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
-    }
-    return null;
+    final http.Response response = await client.delete(url, headers: headers);
+    return handleResponse(response);
   }
 
   /// params

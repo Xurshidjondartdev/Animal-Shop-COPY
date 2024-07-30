@@ -18,14 +18,14 @@ abstract class AppRepository {
 
   Future<String?> getUserInfo();
 
-  Future<String?> postProduct({
-    required String userId,
-    required String description,
-    required String title,
-    required String phone,
-    required String animalName,
-    required String categoryId,
-    required String gender,
-    required List<String> images,
-  });
+  // Future<String?> postProduct({
+  //   required String userId,
+  //   required String description,
+  //   required String title,
+  //   required String phone,
+  //   required String animalName,
+  //   required String categoryId,
+  //   required String gender,
+  //   required List<String> images,
+  // });
 }

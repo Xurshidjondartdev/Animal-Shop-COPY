@@ -113,27 +113,25 @@ final class AppRepositoryImpl implements AppRepository {
       log("post malumotlari keldi  $result");
       return result;
     } else {
-      //null
       return null;
     }
   }
 
-  @override
-  Future<String?> postProduct({
-    required String userId,
-    required String description,
-    required String title,
-    required String phone,
-    required String animalName,
-    required String categoryId,
-    required String gender,
-    required List<String> images,
-  }) async {
-    final result = await Api.POST(
-      api: Api.postProduct,
-      body: {},
-      param: {},
-    );
-
-  }
+  // @override
+  // Future<String?> postProduct({
+  //   required String userId,
+  //   required String description,
+  //   required String title,
+  //   required String phone,
+  //   required String animalName,
+  //   required String categoryId,
+  //   required String gender,
+  //   required List<String> images,
+  // }) async {
+  //   final result = await Api.POST(
+  //     api: Api.postProduct,
+  //     body: {},
+  //     param: {},
+  //   );
+  // }
 }
