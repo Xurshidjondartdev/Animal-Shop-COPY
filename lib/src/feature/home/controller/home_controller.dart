@@ -1,25 +1,25 @@
 import "dart:developer";
 
 import "package:flutter/widgets.dart";
-
 import "../../../core/data/repostory/app_repostory_implementation.dart";
-import "../../../models/post_model.dart";
+import "../../../models/get_post_model.dart";
 
 class HomeController extends ChangeNotifier {
   HomeController() {
     getPostAll();
   }
   TextEditingController searchController = TextEditingController();
-
-  PostModel? postModel;
+  bool isLoading=true;
+  List<GetPostModel>? getPostModel;
   Future<void> getPostAll() async {
+    isLoading=true;
+    log("GetPostModel ");
     final result = await AppRepositoryImpl().getPostAll();
-    log("message  $result");
     if (result != null) {
-      log(" log log :${postModel?.content?.first.animal?.isDeleted}");
-      postModel = postModelFromJson(result);
-      log(" postModel -----${postModel?.content?.first.animal}");
-      notifyListeners();
+      log("Controller GetPostModel ");
+      getPostModel = result; //xato beryapti
+      isLoading=false;
     }
+    notifyListeners();
   }
 }
