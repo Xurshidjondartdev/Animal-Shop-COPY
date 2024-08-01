@@ -32,4 +32,6 @@ abstract class AppRepository {
   //   required String gender,
   //   required List<String> images,
   // });
+
+  ///  Future<String?> favorites({required userId, required postId});
 }

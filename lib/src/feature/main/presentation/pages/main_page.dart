@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 import "../../../../core/style/colors.dart";
-import "../../../home/presentation/pages/favourite_page.dart";
+import "../../../favarite/presentation/pages/favourite_page.dart";
 import "../../../home/presentation/pages/home_page.dart";
 import "../../../profile/presentation/pages/profile_page.dart";
 import "../../controller/main_controller.dart";
