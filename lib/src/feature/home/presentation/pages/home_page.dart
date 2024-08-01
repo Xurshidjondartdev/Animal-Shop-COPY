@@ -47,8 +47,7 @@ class HomePage extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(height: 20.h),
                         MyRowWidget(
-                          onPressed: () =>
-                              context.goNamed(AppRouteName.katalogPage),
+                          onPressed: () => context.goNamed(AppRouteName.katalogPage),
                         ),
                         SizedBox(height: 20.h),
                         Expanded(
@@ -58,8 +57,7 @@ class HomePage extends StatelessWidget {
                             width: double.infinity,
                             child: GridView.builder(
                               itemCount: ref.getPostModel!.length,
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 10,
                                 mainAxisSpacing: 15,
@@ -76,12 +74,10 @@ class HomePage extends StatelessWidget {
                                         width: 156.w,
                                         child: DecoratedBox(
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
+                                            borderRadius: BorderRadius.circular(10),
                                             image: DecorationImage(
                                               image: NetworkImage(
-                                                ref.getPostModel?[index]
-                                                        .imagesUrls?[index] ??
+                                                ref.getPostModel?[index].imagesUrls?[index] ??
                                                     "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg",
                                               ),
                                               fit: BoxFit.cover,
@@ -94,9 +90,7 @@ class HomePage extends StatelessWidget {
                                         child: ListTile(
                                           title: Text(
                                             overflow: TextOverflow.ellipsis,
-                                            ref.getPostModel?[index]
-                                                    .description ??
-                                                "nul",
+                                            ref.getPostModel?[index].description ?? "nul",
                                             style: TextStyle(
                                               fontSize: 10.sp,
                                               fontWeight: FontWeight.w700,
@@ -104,8 +98,7 @@ class HomePage extends StatelessWidget {
                                             ),
                                           ),
                                           subtitle: Text(
-                                            ref.getPostModel?[index].id ??
-                                                r"$00.0",
+                                            ref.getPostModel?[index].id ?? r"$00.0",
                                             style: TextStyle(
                                               fontSize: 8.sp,
                                               fontWeight: FontWeight.w700,
@@ -115,14 +108,12 @@ class HomePage extends StatelessWidget {
                                           trailing: ElevatedButton(
                                             onPressed: () {
                                               if (context.mounted) {
-                                                context.goNamed(
-                                                    AppRouteName.detailPage);
+                                                context.goNamed(AppRouteName.detailPage);
                                               }
                                             },
                                             style: ElevatedButton.styleFrom(
                                               padding: EdgeInsets.zero,
-                                              backgroundColor:
-                                                  AppColors.l00623B,
+                                              backgroundColor: AppColors.l00623B,
                                               fixedSize: Size(44.w, 20.h),
                                             ),
                                             child: Text(
