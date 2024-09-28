@@ -19,12 +19,12 @@ class AuthController with ChangeNotifier {
   bool isObscure = false;
   bool isCheck = false;
   bool secondIsCheck = false;
-  TextEditingController nameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmingController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController pinCodeController = TextEditingController();
+  TextEditingController nameController = TextEditingController(text: "Xurshid");
+  TextEditingController lastNameController = TextEditingController(text: "Umarov");
+  TextEditingController passwordController = TextEditingController(text: "123456");
+  TextEditingController confirmingController = TextEditingController(text: "123456");
+  TextEditingController emailController = TextEditingController(text: "thebestxurshidjon@gmail.com");
+  TextEditingController pinCodeController = TextEditingController(text: "123456");
   String? selectedLanguage = "English";
 
   Future<void> authUser({
@@ -92,16 +92,22 @@ class AuthController with ChangeNotifier {
     required BuildContext context,
     required String pincode,
   }) async {
-    final result = await POSTPossword(
-      api: Api.apiCheckPassword,
-      body: {},
-      param: {
-        "code": pincode,
+    // URL ni to'liq shaklda yaratamiz
+    final String apiUrl = "${Api.BASEURL}/email/check-password?code=$pincode";
+    log("Murojaat qilingan URL: $apiUrl");
+
+    // HTTP so'rovini yuboramiz
+    final http.Response response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer $token", // To'g'ri tokenni qo'shish
       },
     );
 
-    log("check pincode $result");
-    if (result != null) {
+    log("Javob: ${response.body}");
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log("Pincode to'g'ri: ${response.body}");
       if (context.mounted) {
         context.goNamed(AppRouteName.loginPage);
         Utils.fireSnackBar(
@@ -110,6 +116,7 @@ class AuthController with ChangeNotifier {
         );
       }
     } else {
+      log("Xato: ${response.statusCode}");
       if (context.mounted) {
         Utils.fireSnackBar(
           Words.PinCodeXatoQaytadanUriningKoring.tr(context),
@@ -132,7 +139,9 @@ class AuthController with ChangeNotifier {
       final tokenModel = tokenModelFromJson(result);
       await UserStorage.store(key: StorageKey.token, value: tokenModel.token!);
       await UserStorage.store(
-          key: StorageKey.refreshToken, value: tokenModel.refreshToken!,);
+        key: StorageKey.refreshToken,
+        value: tokenModel.refreshToken!,
+      );
 
       log("login  token kor  $token");
       if (context.mounted) {
